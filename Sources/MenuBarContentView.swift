@@ -31,7 +31,6 @@ struct MenuBarContentView: View {
                 .fill(.ultraThinMaterial)
         )
         .fontDesign(.monospaced)
-        .preferredColorScheme(preferences.theme.colorScheme)
     }
 
     private var header: some View {

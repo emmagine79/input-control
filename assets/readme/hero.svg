@@ -5,11 +5,11 @@
       <stop offset="0.54" stop-color="#F1F3F9"/>
       <stop offset="1" stop-color="#ECEEF6"/>
     </linearGradient>
-    <linearGradient id="panelStroke" x1="970" y1="136" x2="1488" y2="742" gradientUnits="userSpaceOnUse">
+    <linearGradient id="panelStroke" x1="1038" y1="136" x2="1522" y2="742" gradientUnits="userSpaceOnUse">
       <stop stop-color="white" stop-opacity="0.95"/>
       <stop offset="1" stop-color="white" stop-opacity="0.28"/>
     </linearGradient>
-    <filter id="shadow" x="902" y="96" width="656" height="714" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+    <filter id="shadow" x="970" y="96" width="596" height="714" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
       <feFlood flood-opacity="0" result="BackgroundImageFix"/>
       <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
       <feOffset dy="24"/>
@@ -26,41 +26,41 @@
   <circle cx="154" cy="806" r="164" fill="#F1F2F8"/>
 
   <text x="120" y="176" fill="#6A6A73" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="28" letter-spacing="0.18em">INPUT CONTROL</text>
-  <text x="120" y="292" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="86" font-weight="700">Pin the input</text>
-  <text x="120" y="386" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="86" font-weight="700">you actually want.</text>
-  <text x="120" y="474" fill="#626672" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="28">A native macOS menu bar utility for instant microphone switching,</text>
-  <text x="120" y="518" fill="#626672" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="28">preferred-input recovery, login launch, and a Tahoe-style</text>
-  <text x="120" y="562" fill="#626672" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="28">appearance that can follow light, dark, or system theme.</text>
+  <text x="120" y="292" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="86" font-weight="700" textLength="590" lengthAdjust="spacingAndGlyphs">Pin the input</text>
+  <text x="120" y="386" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="86" font-weight="700" textLength="624" lengthAdjust="spacingAndGlyphs">you actually want.</text>
+  <text x="120" y="474" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="28" textLength="700" lengthAdjust="spacingAndGlyphs">A native macOS menu bar utility for instant microphone switching,</text>
+  <text x="120" y="518" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="28" textLength="646" lengthAdjust="spacingAndGlyphs">preferred-input recovery, login launch, and a Tahoe-style</text>
+  <text x="120" y="562" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="28" textLength="680" lengthAdjust="spacingAndGlyphs">appearance that can follow light, dark, or system theme.</text>
 
   <g transform="translate(120 610)">
-    <rect width="352" height="132" rx="28" fill="#FFFFFF" fill-opacity="0.72" stroke="#DBDDE6"/>
-    <text x="26" y="42" fill="#4E5260" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" letter-spacing="0.08em">FAST PATH</text>
-    <text x="26" y="82" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="26" font-weight="700">Menu bar window</text>
-    <text x="26" y="112" fill="#626672" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">One click to switch away from Bluetooth takeovers.</text>
+    <rect width="396" height="132" rx="28" fill="#FFFFFF" fill-opacity="0.72" stroke="#DBDDE6"/>
+    <text x="26" y="42" fill="#4E5260" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" letter-spacing="0.08em">FAST PATH</text>
+    <text x="26" y="82" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="26" font-weight="700" textLength="220" lengthAdjust="spacingAndGlyphs">Menu bar window</text>
+    <text x="26" y="112" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18" textLength="318" lengthAdjust="spacingAndGlyphs">One click to switch away from Bluetooth takeovers.</text>
   </g>
 
   <g filter="url(#shadow)">
-    <rect x="958" y="128" width="544" height="602" rx="38" fill="#F7F7FB" fill-opacity="0.9"/>
-    <rect x="958.75" y="128.75" width="542.5" height="600.5" rx="37.25" stroke="url(#panelStroke)" stroke-width="1.5"/>
+    <rect x="1026" y="128" width="500" height="602" rx="38" fill="#F7F7FB" fill-opacity="0.9"/>
+    <rect x="1026.75" y="128.75" width="498.5" height="600.5" rx="37.25" stroke="url(#panelStroke)" stroke-width="1.5"/>
   </g>
 
-  <g transform="translate(994 164)">
+  <g transform="translate(1060 164)">
     <text x="0" y="0" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700">Input Control</text>
     <text x="0" y="36" fill="#6A6A73" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Shure MV7</text>
 
     <text x="0" y="102" fill="#6A6A73" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="0.08em">CURRENT INPUT</text>
-    <rect x="0" y="132" width="472" height="96" rx="26" fill="#F6E5ED" stroke="#F0B8CF" stroke-width="2"/>
+    <rect x="0" y="132" width="432" height="96" rx="26" fill="#F6E5ED" stroke="#F0B8CF" stroke-width="2"/>
     <circle cx="52" cy="180" r="24" fill="#E9B7CF"/>
     <circle cx="52" cy="180" r="11" fill="#EF4E9B"/>
     <path d="M47.5 179.5L51 183L57 175.5" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
     <text x="94" y="174" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">Shure MV7</text>
     <text x="94" y="204" fill="#626672" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="16">USB Audio / Preferred / Active</text>
-    <rect x="312" y="148" width="126" height="40" rx="20" fill="#F6CADC"/>
-    <text x="332" y="174" fill="#EF4E9B" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="16" font-weight="700">Preferred</text>
+    <rect x="286" y="148" width="116" height="40" rx="20" fill="#F6CADC"/>
+    <text x="308" y="174" fill="#EF4E9B" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="16" font-weight="700">Preferred</text>
 
     <text x="0" y="292" fill="#6A6A73" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="17" font-weight="700" letter-spacing="0.08em">AVAILABLE INPUTS</text>
 
-    <rect x="0" y="322" width="472" height="82" rx="24" fill="#F0F0F5" stroke="#DBDDE6" stroke-width="1.5"/>
+    <rect x="0" y="322" width="432" height="82" rx="24" fill="#F0F0F5" stroke="#DBDDE6" stroke-width="1.5"/>
     <circle cx="52" cy="363" r="22" fill="#DBDCE3"/>
     <path d="M52 351C48.134 351 45 354.134 45 358V362C45 365.866 48.134 369 52 369C55.866 369 59 365.866 59 362V358C59 354.134 55.866 351 52 351Z" fill="#5A5A63"/>
     <path d="M62 362C62 367.523 57.523 372 52 372C46.477 372 42 367.523 42 362" stroke="#5A5A63" stroke-width="2.5" stroke-linecap="round"/>
@@ -69,7 +69,7 @@
     <text x="94" y="358" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700">AirPods Max</text>
     <text x="94" y="386" fill="#626672" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="16">Bluetooth</text>
 
-    <rect x="0" y="422" width="472" height="82" rx="24" fill="#F0F0F5" stroke="#DBDDE6" stroke-width="1.5"/>
+    <rect x="0" y="422" width="432" height="82" rx="24" fill="#F0F0F5" stroke="#DBDDE6" stroke-width="1.5"/>
     <circle cx="52" cy="463" r="22" fill="#DBDCE3"/>
     <path d="M52 451C48.134 451 45 454.134 45 458V462C45 465.866 48.134 469 52 469C55.866 469 59 465.866 59 462V458C59 454.134 55.866 451 52 451Z" fill="#5A5A63"/>
     <path d="M62 462C62 467.523 57.523 472 52 472C46.477 472 42 467.523 42 462" stroke="#5A5A63" stroke-width="2.5" stroke-linecap="round"/>

@@ -37,7 +37,6 @@ struct SettingsView: View {
         )
         .background(.regularMaterial)
         .fontDesign(.monospaced)
-        .preferredColorScheme(preferences.theme.colorScheme)
     }
 
     private var hero: some View {

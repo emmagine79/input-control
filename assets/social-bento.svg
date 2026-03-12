@@ -1,0 +1,95 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="118" y1="80" x2="1494" y2="1118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F8FB"/>
+      <stop offset="0.54" stop-color="#F1F3F9"/>
+      <stop offset="1" stop-color="#ECEEF6"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="1024" y1="144" x2="1468" y2="748" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.26"/>
+    </linearGradient>
+    <filter id="shadow" x="50" y="50" width="1500" height="1120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="24"/>
+      <feGaussianBlur stdDeviation="34"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.08 0 0 0 0 0.1 0 0 0 0 0.16 0 0 0 0.14 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <circle cx="1436" cy="132" r="150" fill="#F5D7E7"/>
+  <circle cx="1472" cy="172" r="96" fill="#FCECF3"/>
+  <circle cx="146" cy="1080" r="186" fill="#EEF0F7"/>
+
+  <g filter="url(#shadow)">
+    <rect x="86" y="82" width="1428" height="1038" rx="52" fill="#F7F7FB" fill-opacity="0.82" stroke="url(#glass)" stroke-width="1.5"/>
+  </g>
+
+  <text x="142" y="170" fill="#6A6A73" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="28" letter-spacing="0.16em">INPUT CONTROL</text>
+  <text x="142" y="292" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="88" font-weight="700">A faster path back</text>
+  <text x="142" y="388" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="88" font-weight="700">to the right mic.</text>
+  <text x="142" y="468" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="30">Built for the moment Bluetooth devices hijack your input</text>
+  <text x="142" y="514" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="30">and you need to get back to the microphone you actually want.</text>
+
+  <g transform="translate(142 584)">
+    <rect width="476" height="228" rx="34" fill="#FFFFFF" fill-opacity="0.70" stroke="#DBDDE6"/>
+    <text x="30" y="48" fill="#4E5260" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" letter-spacing="0.08em">SWITCH FAST</text>
+    <text x="30" y="96" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="36" font-weight="700">Menu bar control</text>
+    <text x="30" y="144" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22">See the active input instantly and</text>
+    <text x="30" y="176" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22">switch with one click.</text>
+    <rect x="30" y="188" width="154" height="10" rx="5" fill="#EF4E9B" fill-opacity="0.20"/>
+  </g>
+
+  <g transform="translate(650 584)">
+    <rect width="356" height="228" rx="34" fill="#F6E5ED" stroke="#F0B8CF" stroke-width="1.5"/>
+    <text x="30" y="48" fill="#4E5260" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" letter-spacing="0.08em">STAY PINNED</text>
+    <text x="30" y="96" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="36" font-weight="700">Preferred input</text>
+    <text x="30" y="144" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22">Auto-restore your mic after</text>
+    <text x="30" y="176" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22">AirPods or other devices take over.</text>
+  </g>
+
+  <g transform="translate(1038 584)">
+    <rect width="392" height="228" rx="34" fill="#FFFFFF" fill-opacity="0.70" stroke="#DBDDE6"/>
+    <text x="30" y="48" fill="#4E5260" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" letter-spacing="0.08em">MATCH MACOS</text>
+    <text x="30" y="96" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="36" font-weight="700">Theme aware</text>
+    <text x="30" y="144" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22">Use light, dark, or follow</text>
+    <text x="30" y="176" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22">the current system appearance.</text>
+  </g>
+
+  <g transform="translate(142 850)">
+    <rect width="604" height="198" rx="34" fill="#FFFFFF" fill-opacity="0.70" stroke="#DBDDE6"/>
+    <text x="30" y="48" fill="#4E5260" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" letter-spacing="0.08em">SET IT ONCE</text>
+    <text x="30" y="96" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="36" font-weight="700">Startup + remembered settings</text>
+    <text x="30" y="144" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="21">Launch at login and reopen settings at the same size</text>
+    <text x="30" y="172" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="21">and position you left it.</text>
+  </g>
+
+  <g transform="translate(780 850)">
+    <rect width="650" height="198" rx="34" fill="#F1F2F8" stroke="#DBDDE6"/>
+    <text x="30" y="48" fill="#4E5260" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" letter-spacing="0.08em">DESIGNED FOR TAHOE</text>
+    <text x="30" y="96" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="32" font-weight="700">Monospaced UI, rounder windows,</text>
+    <text x="30" y="136" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="32" font-weight="700">glassy surfaces</text>
+    <text x="30" y="174" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="19">A compact utility with Apple-style tiled composition and restrained materials.</text>
+  </g>
+
+  <g transform="translate(1006 146)">
+    <rect width="388" height="380" rx="36" fill="#FFFFFF" fill-opacity="0.68" stroke="#DBDDE6"/>
+    <text x="30" y="42" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">Input Control</text>
+    <text x="30" y="78" fill="#6A6A73" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Shure MV7</text>
+    <text x="30" y="136" fill="#6A6A73" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700">CURRENT INPUT</text>
+    <rect x="30" y="162" width="328" height="86" rx="26" fill="#F6E5ED" stroke="#F0B8CF" stroke-width="1.5"/>
+    <circle cx="78" cy="205" r="22" fill="#E9B7CF"/>
+    <circle cx="78" cy="205" r="10" fill="#EF4E9B"/>
+    <path d="M73.5 204.5L77 208L83 200.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="116" y="198" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">Shure MV7</text>
+    <text x="116" y="226" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="16">USB Audio / Preferred / Active</text>
+    <text x="30" y="292" fill="#6A6A73" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700">AVAILABLE INPUTS</text>
+    <rect x="30" y="316" width="328" height="48" rx="18" fill="#F1F2F8" stroke="#DBDDE6"/>
+    <text x="54" y="347" fill="#111217" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700">AirPods Max</text>
+    <text x="212" y="347" fill="#626672" font-family="'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Bluetooth</text>
+  </g>
+</svg>

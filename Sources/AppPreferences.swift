@@ -32,6 +32,18 @@ enum AppTheme: String, CaseIterable, Identifiable {
         }
     }
 
+    func resolvedColorScheme(for appearance: NSAppearance) -> ColorScheme {
+        switch self {
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        case .system:
+            let bestMatch = appearance.bestMatch(from: [.darkAqua, .aqua])
+            return bestMatch == .darkAqua ? .dark : .light
+        }
+    }
+
     var windowAppearance: NSAppearance? {
         switch self {
         case .system:

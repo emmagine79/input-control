@@ -4,6 +4,7 @@ import SwiftUI
 
 @MainActor
 final class SettingsWindowManager: ObservableObject {
+    private static let frameAutosaveName = "InputControlSettingsWindow"
     private let deviceStore: AudioDeviceStore
     private let preferences: AppPreferences
     private let launchAtLoginManager: LaunchAtLoginManager
@@ -18,8 +19,13 @@ final class SettingsWindowManager: ObservableObject {
         self.deviceStore = deviceStore
         self.preferences = preferences
         self.launchAtLoginManager = launchAtLoginManager
+        applyThemeToApp()
         self.themeObservation = preferences.$theme.sink { [weak self] _ in
+            self?.applyThemeToApp()
             self?.applyThemeToWindow()
+            if let controller = self?.windowController {
+                self?.updateRootView(in: controller)
+            }
         }
     }
 
@@ -27,9 +33,7 @@ final class SettingsWindowManager: ObservableObject {
         let controller = windowController ?? makeWindowController()
         windowController = controller
 
-        if let hostingController = controller.contentViewController as? NSHostingController<AnyView> {
-            hostingController.rootView = makeRootView()
-        }
+        updateRootView(in: controller)
 
         controller.showWindow(nil)
         controller.window?.makeKeyAndOrderFront(nil)
@@ -49,6 +53,7 @@ final class SettingsWindowManager: ObservableObject {
         window.titleVisibility = .hidden
         window.toolbarStyle = .preference
         window.backgroundColor = .clear
+        window.setFrameAutosaveName(Self.frameAutosaveName)
         window.center()
         applyTheme(to: window)
 
@@ -56,17 +61,33 @@ final class SettingsWindowManager: ObservableObject {
     }
 
     private func makeRootView() -> AnyView {
-        AnyView(
+        let resolvedColorScheme = preferences.theme.resolvedColorScheme(for: NSApp.effectiveAppearance)
+        return AnyView(
             SettingsView()
                 .environmentObject(deviceStore)
                 .environmentObject(preferences)
                 .environmentObject(launchAtLoginManager)
                 .fontDesign(.monospaced)
+                .preferredColorScheme(resolvedColorScheme)
         )
+    }
+
+    private func updateRootView(in controller: NSWindowController) {
+        if let hostingController = controller.contentViewController as? NSHostingController<AnyView> {
+            hostingController.rootView = makeRootView()
+        }
     }
 
     private func applyThemeToWindow() {
         applyTheme(to: windowController?.window)
+    }
+
+    private func applyThemeToApp() {
+        let appearance = preferences.theme.windowAppearance
+        NSApp.appearance = appearance
+        for window in NSApp.windows {
+            window.appearance = appearance
+        }
     }
 
     private func applyTheme(to window: NSWindow?) {

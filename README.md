@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" alt="Input Control hero" width="100%" />
+  <img src="./assets/readme/hero.png" alt="Input Control hero" width="100%" />
 </p>
 
 <p align="center">
@@ -29,7 +29,7 @@ Input Control lives in the macOS menu bar and gives you a fast, native way to:
 - configure launch at login from an in-app settings window
 
 <p align="center">
-  <img src="./assets/readme/settings-window.svg" alt="Input Control settings preview" width="92%" />
+  <img src="./assets/readme/settings-window.png" alt="Input Control settings preview" width="92%" />
 </p>
 
 ## Why It Exists
