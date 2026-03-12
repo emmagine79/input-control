@@ -25,6 +25,7 @@ Input Control lives in the macOS menu bar and gives you a fast, native way to:
 - switch between available input devices in one click
 - set a preferred microphone
 - automatically restore that preferred microphone if another device takes over
+- choose a light, dark, or system-following theme
 - configure launch at login from an in-app settings window
 
 <p align="center">
@@ -39,9 +40,27 @@ If you want your USB mic, interface, or built-in mic to stay active, Input Contr
 
 ## Download
 
-The intended public distribution path is the GitHub Releases page for this repository. Once the repo is published, the latest downloadable build should live under:
+Download the current public build from the latest GitHub Release:
 
-`Releases -> latest -> Input-Control-macOS-universal.zip`
+- [Latest release](https://github.com/emmagine79/input-control/releases/latest)
+- Asset: `Input-Control-macOS-universal.zip`
+
+## If macOS Blocks the App
+
+Current public builds are release-ready, but they are not notarized yet. If macOS flags the app on first launch:
+
+1. Move `Input Control.app` into `/Applications`.
+2. Try to open it once, then dismiss the warning.
+3. Open `Apple menu -> System Settings -> Privacy & Security`.
+4. Scroll to the `Security` section and click `Open Anyway`.
+5. Confirm the second prompt and authenticate with your Mac password or Touch ID.
+
+Apple notes that `Open Anyway` is only available for about one hour after the blocked launch attempt.
+
+Reference:
+
+- [Open a Mac app from an unknown developer](https://support.apple.com/guide/mac-help/mh40616/mac)
+- [Safely open apps on your Mac](https://support.apple.com/102445)
 
 ## Build From Source
 
@@ -63,20 +82,6 @@ chmod +x scripts/install-app.sh
 ./scripts/install-app.sh
 ```
 
-### Open in Xcode
-
-```bash
-chmod +x scripts/open-in-xcode.sh
-./scripts/open-in-xcode.sh
-```
-
-### Build with Xcode from the terminal
-
-```bash
-chmod +x scripts/xcodebuild-macos.sh
-./scripts/xcodebuild-macos.sh
-```
-
 ## Release Artifacts
 
 To generate the exact files intended for GitHub Releases:
@@ -95,7 +100,7 @@ Output:
 
 1. Install the app to `/Applications`.
 2. Open it once manually.
-3. In Settings, pick your preferred input.
+3. In Settings, pick your preferred input and theme.
 4. Enable `Launch at login` if you want the app active on every boot.
 
 ## Project Layout

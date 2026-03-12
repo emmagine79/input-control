@@ -1,5 +1,48 @@
+import AppKit
 import CoreAudio
 import Foundation
+import SwiftUI
+
+enum AppTheme: String, CaseIterable, Identifiable {
+    case system
+    case light
+    case dark
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .system:
+            return "Follow System"
+        case .light:
+            return "Light"
+        case .dark:
+            return "Dark"
+        }
+    }
+
+    var colorScheme: ColorScheme? {
+        switch self {
+        case .system:
+            return nil
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        }
+    }
+
+    var windowAppearance: NSAppearance? {
+        switch self {
+        case .system:
+            return nil
+        case .light:
+            return NSAppearance(named: .aqua)
+        case .dark:
+            return NSAppearance(named: .darkAqua)
+        }
+    }
+}
 
 @MainActor
 final class AppPreferences: ObservableObject {
@@ -8,6 +51,7 @@ final class AppPreferences: ObservableObject {
         static let autoRestorePreferredInput = "autoRestorePreferredInput"
         static let launchAtLogin = "launchAtLogin"
         static let showsDeviceNameInMenuBar = "showsDeviceNameInMenuBar"
+        static let theme = "theme"
     }
 
     @Published var preferredInputID: AudioDeviceID? {
@@ -35,6 +79,12 @@ final class AppPreferences: ObservableObject {
     @Published var showsDeviceNameInMenuBar: Bool {
         didSet {
             defaults.set(showsDeviceNameInMenuBar, forKey: Key.showsDeviceNameInMenuBar)
+        }
+    }
+
+    @Published var theme: AppTheme {
+        didSet {
+            defaults.set(theme.rawValue, forKey: Key.theme)
         }
     }
 
@@ -66,6 +116,13 @@ final class AppPreferences: ObservableObject {
             self.showsDeviceNameInMenuBar = defaults.bool(forKey: Key.showsDeviceNameInMenuBar)
         } else {
             self.showsDeviceNameInMenuBar = true
+        }
+
+        if let storedTheme = defaults.string(forKey: Key.theme),
+           let theme = AppTheme(rawValue: storedTheme) {
+            self.theme = theme
+        } else {
+            self.theme = .system
         }
     }
 }

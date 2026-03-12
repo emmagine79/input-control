@@ -1,36 +1,39 @@
 <svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="shell" x1="128" y1="92" x2="1058" y2="694" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FFFFFF" stop-opacity="0.82"/>
-      <stop offset="1" stop-color="#F6F8FC" stop-opacity="0.72"/>
+    <linearGradient id="shell" x1="132" y1="76" x2="1050" y2="692" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.84"/>
+      <stop offset="1" stop-color="#F5F5FA" stop-opacity="0.76"/>
     </linearGradient>
   </defs>
-  <rect width="1200" height="760" fill="#F3F6FB"/>
-  <rect x="116" y="74" width="968" height="612" rx="34" fill="url(#shell)" stroke="#D9E1EC" stroke-width="1.5"/>
-  <rect x="116" y="74" width="968" height="74" rx="34" fill="#FFFFFF" fill-opacity="0.62"/>
-  <circle cx="156" cy="111" r="7" fill="#FF5F57"/>
-  <circle cx="181" cy="111" r="7" fill="#FEBC2E"/>
-  <circle cx="206" cy="111" r="7" fill="#28C840"/>
-  <text x="824" y="117" fill="#667083" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">SETTINGS WINDOW</text>
+  <rect width="1200" height="760" fill="#F1F2F8"/>
+  <rect x="114" y="72" width="972" height="616" rx="36" fill="url(#shell)" stroke="#DADCE6" stroke-width="1.5"/>
+  <circle cx="152" cy="112" r="7" fill="#FF5F57"/>
+  <circle cx="177" cy="112" r="7" fill="#FEBC2E"/>
+  <circle cx="202" cy="112" r="7" fill="#28C840"/>
 
-  <text x="170" y="212" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="34" font-weight="700">Input Control Settings</text>
-  <text x="170" y="248" fill="#6A7282" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Keep your preferred microphone active, even when Bluetooth devices connect.</text>
+  <text x="168" y="188" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="34" font-weight="700">Input Control Settings</text>
+  <text x="168" y="224" fill="#646775" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Choose the input behavior and appearance you want to keep.</text>
 
-  <g transform="translate(170 302)">
-    <rect width="860" height="110" rx="26" fill="white" fill-opacity="0.74" stroke="#D6DEE8"/>
-    <text x="24" y="34" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">STARTUP</text>
-    <text x="24" y="70" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Launch at login</text>
-    <rect x="758" y="48" width="78" height="34" rx="17" fill="#111318"/>
-    <circle cx="817" cy="65" r="14" fill="white"/>
+  <g transform="translate(168 270)">
+    <rect width="864" height="126" rx="28" fill="#FFFFFF" fill-opacity="0.72" stroke="#DADCE6"/>
+    <text x="26" y="38" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">APPEARANCE</text>
+    <text x="26" y="84" fill="#4C4F5C" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Theme</text>
+    <rect x="634" y="56" width="204" height="42" rx="16" fill="#F3F4F8" stroke="#DADCE6"/>
+    <text x="660" y="82" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="17">Follow System</text>
+    <path d="M804 73L814 83L824 73" stroke="#666978" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 
-  <g transform="translate(170 430)">
-    <rect width="860" height="148" rx="26" fill="white" fill-opacity="0.74" stroke="#D6DEE8"/>
-    <text x="24" y="34" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">PREFERRED INPUT</text>
-    <rect x="24" y="56" width="812" height="42" rx="16" fill="#F5F8FD" stroke="#D6DEE8"/>
-    <text x="42" y="82" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="17">Shure MV7</text>
-    <text x="24" y="128" fill="#6A7282" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="16">Automatically keep the preferred input active</text>
-    <rect x="758" y="111" width="78" height="34" rx="17" fill="#111318"/>
-    <circle cx="817" cy="128" r="14" fill="white"/>
+  <g transform="translate(168 420)">
+    <rect width="864" height="112" rx="28" fill="#FFFFFF" fill-opacity="0.72" stroke="#DADCE6"/>
+    <text x="26" y="38" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">STARTUP</text>
+    <text x="26" y="80" fill="#4C4F5C" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Launch at login</text>
+    <rect x="756" y="56" width="78" height="34" rx="17" fill="#EF4E9B"/>
+    <circle cx="815" cy="73" r="14" fill="white"/>
+  </g>
+
+  <g transform="translate(168 554)">
+    <rect width="864" height="90" rx="28" fill="#F6E5ED" stroke="#F0B8CF" stroke-width="1.5"/>
+    <text x="26" y="40" fill="#111217" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700">Preferred input</text>
+    <text x="26" y="67" fill="#646775" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="17">Shure MV7 with automatic restore enabled.</text>
   </g>
 </svg>

@@ -11,11 +11,13 @@ struct SettingsView: View {
             hero
 
             Form {
+                appearanceSection
                 launchSection
                 preferredInputSection
                 menuBarSection
             }
             .formStyle(.grouped)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             if let errorMessage = launchAtLoginManager.errorMessage {
                 Text(errorMessage)
@@ -24,9 +26,18 @@ struct SettingsView: View {
             }
         }
         .padding(24)
-        .frame(width: 520, height: 420, alignment: .topLeading)
+        .frame(
+            minWidth: 520,
+            idealWidth: 560,
+            maxWidth: .infinity,
+            minHeight: 420,
+            idealHeight: 500,
+            maxHeight: .infinity,
+            alignment: .topLeading
+        )
         .background(.regularMaterial)
         .fontDesign(.monospaced)
+        .preferredColorScheme(preferences.theme.colorScheme)
     }
 
     private var hero: some View {
@@ -36,6 +47,22 @@ struct SettingsView: View {
 
             Text("Keep your Mac on the input you actually want, even when other devices connect.")
                 .font(.system(size: 13, weight: .medium, design: .monospaced))
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private var appearanceSection: some View {
+        Section("Appearance") {
+            Picker("Theme", selection: $preferences.theme) {
+                ForEach(AppTheme.allCases) { theme in
+                    Text(theme.title)
+                        .tag(theme)
+                }
+            }
+            .pickerStyle(.menu)
+
+            Text("Choose a fixed light or dark look, or let Input Control follow the current macOS appearance.")
+                .font(.system(size: 12, weight: .regular, design: .monospaced))
                 .foregroundStyle(.secondary)
         }
     }
