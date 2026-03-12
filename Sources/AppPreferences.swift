@@ -1,7 +1,6 @@
 import AppKit
 import CoreAudio
 import Foundation
-import SwiftUI
 
 enum AppTheme: String, CaseIterable, Identifiable {
     case system
@@ -18,29 +17,6 @@ enum AppTheme: String, CaseIterable, Identifiable {
             return "Light"
         case .dark:
             return "Dark"
-        }
-    }
-
-    var colorScheme: ColorScheme? {
-        switch self {
-        case .system:
-            return nil
-        case .light:
-            return .light
-        case .dark:
-            return .dark
-        }
-    }
-
-    func resolvedColorScheme(for appearance: NSAppearance) -> ColorScheme {
-        switch self {
-        case .light:
-            return .light
-        case .dark:
-            return .dark
-        case .system:
-            let bestMatch = appearance.bestMatch(from: [.darkAqua, .aqua])
-            return bestMatch == .darkAqua ? .dark : .light
         }
     }
 

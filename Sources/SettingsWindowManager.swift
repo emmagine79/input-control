@@ -61,14 +61,12 @@ final class SettingsWindowManager: ObservableObject {
     }
 
     private func makeRootView() -> AnyView {
-        let resolvedColorScheme = preferences.theme.resolvedColorScheme(for: NSApp.effectiveAppearance)
         return AnyView(
             SettingsView()
                 .environmentObject(deviceStore)
                 .environmentObject(preferences)
                 .environmentObject(launchAtLoginManager)
                 .fontDesign(.monospaced)
-                .preferredColorScheme(resolvedColorScheme)
         )
     }
 

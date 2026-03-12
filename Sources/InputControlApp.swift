@@ -30,7 +30,6 @@ struct InputControlApp: App {
                 .environmentObject(preferences)
                 .environmentObject(settingsWindowManager)
                 .fontDesign(.monospaced)
-                .preferredColorScheme(preferences.theme.resolvedColorScheme(for: NSApp.effectiveAppearance))
         } label: {
             MenuBarLabelView()
                 .environmentObject(deviceStore)
