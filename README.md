@@ -1,52 +1,106 @@
-# Input Control
+<p align="center">
+  <img src="./assets/readme/hero.svg" alt="Input Control hero" width="100%" />
+</p>
 
-Native macOS menu bar utility for quickly switching audio input devices, now with a full Xcode app target.
+<p align="center">
+  <strong>Native macOS menu bar control for audio input switching.</strong><br />
+  Built for the exact case where AirPods Max or other Bluetooth devices hijack your preferred microphone.
+</p>
 
-## What it does
+<p align="center">
+  <a href="#download">Download</a>
+  ·
+  <a href="#what-it-does">Features</a>
+  ·
+  <a href="#build-from-source">Build</a>
+  ·
+  <a href="#release-artifacts">Release Artifacts</a>
+</p>
 
-- Shows the current audio input directly in the menu bar
-- Lets you switch inputs from a Tahoe-style menu bar panel
-- Includes a native Settings window for startup and preferred-input behavior
-- Can automatically switch back to your preferred input when another device takes over
+## What It Does
 
-## Build and run
+Input Control lives in the macOS menu bar and gives you a fast, native way to:
+
+- see the current audio input instantly
+- switch between available input devices in one click
+- set a preferred microphone
+- automatically restore that preferred microphone if another device takes over
+- configure launch at login from an in-app settings window
+
+<p align="center">
+  <img src="./assets/readme/settings-window.svg" alt="Input Control settings preview" width="92%" />
+</p>
+
+## Why It Exists
+
+Some Bluetooth devices, especially headphones with microphones, aggressively become the default input when they connect. This app keeps that behavior from derailing your actual setup.
+
+If you want your USB mic, interface, or built-in mic to stay active, Input Control makes that state easy to see and easy to recover.
+
+## Download
+
+The intended public distribution path is the GitHub Releases page for this repository. Once the repo is published, the latest downloadable build should live under:
+
+`Releases -> latest -> Input-Control-macOS-universal.zip`
+
+## Build From Source
+
+### Build the app
 
 ```bash
 chmod +x scripts/build-app.sh
 ./scripts/build-app.sh --run
 ```
 
-The built app bundle is placed at `dist/Input Control.app`.
+Output:
 
-## Install to Applications
+- `dist/Input Control.app`
+
+### Install to `/Applications`
 
 ```bash
 chmod +x scripts/install-app.sh
 ./scripts/install-app.sh
 ```
 
-This builds the app, installs it to `/Applications/Input Control.app`, and opens it.
-
-## Open in Xcode
+### Open in Xcode
 
 ```bash
-chmod +x scripts/open-in-xcode.sh scripts/xcodebuild-macos.sh
+chmod +x scripts/open-in-xcode.sh
 ./scripts/open-in-xcode.sh
 ```
 
-If you want to build the full app target from the command line with Xcode:
+### Build with Xcode from the terminal
 
 ```bash
+chmod +x scripts/xcodebuild-macos.sh
 ./scripts/xcodebuild-macos.sh
 ```
 
-## Recommended setup
+## Release Artifacts
+
+To generate the exact files intended for GitHub Releases:
+
+```bash
+chmod +x scripts/build-release.sh
+./scripts/build-release.sh
+```
+
+Output:
+
+- `release/Input-Control-macOS-universal.zip`
+- `release/SHA256SUMS.txt`
+
+## Recommended Setup
 
 1. Install the app to `/Applications`.
-2. Open the app once.
-3. In Settings, choose your preferred input and enable `Launch at login` if you want it to start with macOS.
+2. Open it once manually.
+3. In Settings, pick your preferred input.
+4. Enable `Launch at login` if you want the app active on every boot.
 
-## Project layout
+## Project Layout
 
-- `InputControl.xcodeproj` is the primary macOS app target for signing and shipping.
-- `Package.swift` remains as a lightweight Swift package entry point for code reuse and fallback builds.
+- `InputControl.xcodeproj` is the primary app target for shipping and signing.
+- `Sources/` contains the native SwiftUI and AppKit implementation.
+- `Resources/Assets.xcassets` contains the app icon asset catalog.
+- `scripts/build-release.sh` creates release-ready archives for GitHub Releases.

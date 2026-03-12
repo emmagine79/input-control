@@ -1,0 +1,95 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="240" y1="120" x2="1380" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F8FB"/>
+      <stop offset="0.52" stop-color="#EEF4FF"/>
+      <stop offset="1" stop-color="#E8F8F8"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="958" y1="202" x2="1178" y2="580" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4FA1FF"/>
+      <stop offset="1" stop-color="#7AE4D8"/>
+    </linearGradient>
+    <linearGradient id="windowStroke" x1="862" y1="204" x2="1268" y2="580" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="blurCard" x="760" y="130" width="610" height="540" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feGaussianBlur in="BackgroundImageFix" stdDeviation="26"/>
+      <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_0_1" result="shape"/>
+    </filter>
+    <filter id="softShadow" x="770" y="140" width="612" height="542" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="22"/>
+      <feGaussianBlur stdDeviation="28"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.098 0 0 0 0 0.149 0 0 0 0 0.239 0 0 0 0.14 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1298" cy="184" r="174" fill="#DDEEFF"/>
+  <circle cx="1318" cy="184" r="122" fill="#C7F2EB"/>
+  <circle cx="254" cy="780" r="198" fill="#F0F2F9"/>
+
+  <text x="120" y="196" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="30" letter-spacing="0.22em">INPUT CONTROL</text>
+  <text x="120" y="320" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="92" font-weight="700">Keep your mic.</text>
+  <text x="120" y="418" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="92" font-weight="700">Not your AirPods Max.</text>
+  <text x="120" y="494" fill="#5A6373" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="26">A native macOS menu bar utility for switching audio inputs instantly,</text>
+  <text x="120" y="534" fill="#5A6373" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="26">setting a preferred input, and restoring it when Bluetooth devices take over.</text>
+
+  <g transform="translate(120 612)">
+    <rect width="220" height="56" rx="20" fill="#111318"/>
+    <text x="30" y="35" fill="white" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20">DOWNLOAD RELEASE</text>
+  </g>
+  <g transform="translate(362 612)">
+    <rect width="196" height="56" rx="20" fill="white" fill-opacity="0.75" stroke="#D6DCE7"/>
+    <text x="30" y="35" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20">OPEN IN XCODE</text>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <g filter="url(#blurCard)">
+      <rect x="824" y="196" width="492" height="430" rx="34" fill="white" fill-opacity="0.56"/>
+      <rect x="824.75" y="196.75" width="490.5" height="428.5" rx="33.25" stroke="url(#windowStroke)" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <g transform="translate(856 228)">
+    <rect width="428" height="44" rx="18" fill="#0F1116" fill-opacity="0.08"/>
+    <circle cx="24" cy="22" r="6" fill="#FF5F57"/>
+    <circle cx="46" cy="22" r="6" fill="#FEBC2E"/>
+    <circle cx="68" cy="22" r="6" fill="#28C840"/>
+    <text x="330" y="28" fill="#5C6575" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="15">MENU BAR WINDOW</text>
+  </g>
+
+  <g transform="translate(856 294)">
+    <text x="0" y="20" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="30" font-weight="700">CURRENT INPUT</text>
+    <text x="0" y="52" fill="#6A7282" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Shure MV7</text>
+
+    <rect x="0" y="88" width="428" height="82" rx="24" fill="url(#accent)" fill-opacity="0.16"/>
+    <rect x="0.75" y="88.75" width="426.5" height="80.5" rx="23.25" stroke="#7FB5FF" stroke-opacity="0.32" stroke-width="1.5"/>
+    <circle cx="42" cy="129" r="18" fill="#EEF6FF"/>
+    <path d="M42 118C37.5817 118 34 121.582 34 126V132C34 136.418 37.5817 140 42 140C46.4183 140 50 136.418 50 132V126C50 121.582 46.4183 118 42 118Z" fill="#237BFF"/>
+    <path d="M54 131.5C54 138.404 48.404 144 41.5 144C34.596 144 29 138.404 29 131.5" stroke="#237BFF" stroke-width="3" stroke-linecap="round"/>
+    <path d="M41.5 145V151" stroke="#237BFF" stroke-width="3" stroke-linecap="round"/>
+    <path d="M35 151H48" stroke="#237BFF" stroke-width="3" stroke-linecap="round"/>
+    <text x="76" y="126" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">Shure MV7</text>
+    <text x="76" y="150" fill="#536071" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="15">USB / Preferred / Active</text>
+
+    <text x="0" y="218" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="20" font-weight="700">AVAILABLE INPUTS</text>
+
+    <g transform="translate(0 240)">
+      <rect width="428" height="62" rx="20" fill="#FFFFFF" fill-opacity="0.64" stroke="#D6DEE8"/>
+      <text x="20" y="26" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700">MacBook Pro Microphone</text>
+      <text x="20" y="46" fill="#6A7282" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="14">Built-In</text>
+    </g>
+    <g transform="translate(0 314)">
+      <rect width="428" height="62" rx="20" fill="#FFFFFF" fill-opacity="0.64" stroke="#D6DEE8"/>
+      <text x="20" y="26" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18" font-weight="700">AirPods Max Microphone</text>
+      <text x="20" y="46" fill="#6A7282" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="14">Bluetooth</text>
+    </g>
+  </g>
+</svg>

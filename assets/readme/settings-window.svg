@@ -1,0 +1,36 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shell" x1="128" y1="92" x2="1058" y2="694" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#F6F8FC" stop-opacity="0.72"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="#F3F6FB"/>
+  <rect x="116" y="74" width="968" height="612" rx="34" fill="url(#shell)" stroke="#D9E1EC" stroke-width="1.5"/>
+  <rect x="116" y="74" width="968" height="74" rx="34" fill="#FFFFFF" fill-opacity="0.62"/>
+  <circle cx="156" cy="111" r="7" fill="#FF5F57"/>
+  <circle cx="181" cy="111" r="7" fill="#FEBC2E"/>
+  <circle cx="206" cy="111" r="7" fill="#28C840"/>
+  <text x="824" y="117" fill="#667083" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">SETTINGS WINDOW</text>
+
+  <text x="170" y="212" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="34" font-weight="700">Input Control Settings</text>
+  <text x="170" y="248" fill="#6A7282" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Keep your preferred microphone active, even when Bluetooth devices connect.</text>
+
+  <g transform="translate(170 302)">
+    <rect width="860" height="110" rx="26" fill="white" fill-opacity="0.74" stroke="#D6DEE8"/>
+    <text x="24" y="34" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">STARTUP</text>
+    <text x="24" y="70" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="18">Launch at login</text>
+    <rect x="758" y="48" width="78" height="34" rx="17" fill="#111318"/>
+    <circle cx="817" cy="65" r="14" fill="white"/>
+  </g>
+
+  <g transform="translate(170 430)">
+    <rect width="860" height="148" rx="26" fill="white" fill-opacity="0.74" stroke="#D6DEE8"/>
+    <text x="24" y="34" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="22" font-weight="700">PREFERRED INPUT</text>
+    <rect x="24" y="56" width="812" height="42" rx="16" fill="#F5F8FD" stroke="#D6DEE8"/>
+    <text x="42" y="82" fill="#111318" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="17">Shure MV7</text>
+    <text x="24" y="128" fill="#6A7282" font-family="ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Monaco, Consolas, monospace" font-size="16">Automatically keep the preferred input active</text>
+    <rect x="758" y="111" width="78" height="34" rx="17" fill="#111318"/>
+    <circle cx="817" cy="128" r="14" fill="white"/>
+  </g>
+</svg>
