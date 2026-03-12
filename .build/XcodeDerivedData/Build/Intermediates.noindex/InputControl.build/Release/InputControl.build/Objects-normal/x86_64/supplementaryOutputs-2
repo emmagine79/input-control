@@ -1,0 +1,12 @@
+{
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AppNavigation.swift" : {
+    "abi-baseline-json" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl.abi.json",
+    "const-values" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary.swiftconstvalues",
+    "dependencies" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary.d",
+    "diagnostics" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary.dia",
+    "objc-header" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-Swift.h",
+    "swiftdoc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl.swiftdoc",
+    "swiftmodule" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl.swiftmodule",
+    "swiftsourceinfo" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl.swiftsourceinfo"
+  }
+}

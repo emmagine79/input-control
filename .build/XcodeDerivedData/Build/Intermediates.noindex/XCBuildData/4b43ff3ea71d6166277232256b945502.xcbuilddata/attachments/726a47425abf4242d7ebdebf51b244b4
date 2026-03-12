@@ -1,0 +1,66 @@
+{
+  "" : {
+    "const-values" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary.swiftconstvalues",
+    "dependencies" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary.d",
+    "diagnostics" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary.dia",
+    "emit-module-dependencies" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary-emit-module.dia",
+    "pch" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControl-primary.swiftdeps"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/GeneratedAssetSymbols.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AppNavigation.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AppNavigation.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AppNavigation.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AppNavigation.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AppPreferences.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AppPreferences.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AppPreferences.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AppPreferences.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AudioDevice.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AudioDevice.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AudioDevice.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AudioDevice.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AudioDeviceStore.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AudioDeviceStore.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AudioDeviceStore.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/AudioDeviceStore.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/CoreAudioController.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/CoreAudioController.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/CoreAudioController.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/CoreAudioController.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/InputControlApp.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControlApp.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControlApp.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/InputControlApp.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/LaunchAtLoginManager.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/LaunchAtLoginManager.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/LaunchAtLoginManager.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/LaunchAtLoginManager.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/MenuBarContentView.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/MenuBarContentView.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/MenuBarContentView.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/MenuBarContentView.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/MenuBarLabelView.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/MenuBarLabelView.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/MenuBarLabelView.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/MenuBarLabelView.o"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/SettingsView.swift" : {
+    "index-unit-output-path" : "/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/SettingsView.o",
+    "llvm-bc" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/SettingsView.bc",
+    "object" : "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/XcodeDerivedData/Build/Intermediates.noindex/InputControl.build/Release/InputControl.build/Objects-normal/x86_64/SettingsView.o"
+  }
+}

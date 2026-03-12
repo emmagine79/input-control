@@ -1,0 +1,2 @@
+Target dependency graph (1 target)
+Target 'InputControl' in project 'InputControl' (no dependencies)

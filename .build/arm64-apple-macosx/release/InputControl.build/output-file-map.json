@@ -1,0 +1,67 @@
+{
+  "": {
+    "dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/InputControl.d",
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/InputControl.o",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/master.swiftdeps"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AppNavigation.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AppNavigation.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AppNavigation~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AppNavigation.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AppNavigation.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AppPreferences.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AppPreferences.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AppPreferences~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AppPreferences.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AppPreferences.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AudioDevice.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AudioDevice.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AudioDevice~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AudioDevice.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AudioDevice.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/AudioDeviceStore.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AudioDeviceStore.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AudioDeviceStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AudioDeviceStore.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/AudioDeviceStore.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/CoreAudioController.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/CoreAudioController.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/CoreAudioController~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/CoreAudioController.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/CoreAudioController.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/InputControlApp.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/InputControlApp.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/InputControlApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/InputControlApp.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/InputControlApp.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/LaunchAtLoginManager.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/LaunchAtLoginManager.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/LaunchAtLoginManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/LaunchAtLoginManager.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/LaunchAtLoginManager.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/MenuBarContentView.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/MenuBarContentView.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/MenuBarContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/MenuBarContentView.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/MenuBarContentView.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/MenuBarLabelView.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/MenuBarLabelView.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/MenuBarLabelView~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/MenuBarLabelView.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/MenuBarLabelView.dia"
+  },
+  "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/Sources/SettingsView.swift": {
+    "object": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/SettingsView.swiftdeps",
+    "diagnostics": "/Users/awesomem3ultra/Documents/Dev/Antigravity/Input Control/.build/arm64-apple-macosx/release/InputControl.build/SettingsView.dia"
+  }
+}
