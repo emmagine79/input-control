@@ -37,7 +37,7 @@ _Files: SettingsWindowManager.swift, InputControlApp.swift, MenuBarContentView.s
 
 ## Post-Fix
 
-- [ ] Final compile + test pass
-- [ ] Bump version to 1.1.0
-- [ ] Update CHANGELOG
+- [x] Final compile + test pass *(all 4 phases compiled clean with both SPM and xcodebuild)*
+- [x] Bump version to 1.1.0 (build 6) *(done 2026-03-17)*
+- [x] Update CHANGELOG *(done 2026-03-17)*
 - [ ] Push as release to GitHub

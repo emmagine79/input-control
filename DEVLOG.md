@@ -108,3 +108,16 @@ This file tracks all changes made to the project, when they were made, and why.
 - Falls back to `NSApp.activate(ignoringOtherApps: true)` on macOS 13
 
 **Files touched**: SettingsWindowManager.swift (rewritten as ThemeManager), InputControlApp.swift, MenuBarContentView.swift, AppNavigation.swift, Info.plist, pending todos.md
+
+---
+
+## 2026-03-17 — Release 1.1.0 (build 6)
+
+**Version bump**: 1.0 (build 1) → 1.1.0 (build 6)
+
+**Release artifacts**:
+- `dist/Input Control.app` — latest build
+- `dist/Input Control v1.1.0 (2026-03-17_1104).app` — timestamped archive
+
+**Files created**: CHANGELOG.md
+**Files touched**: Info.plist, pending todos.md
