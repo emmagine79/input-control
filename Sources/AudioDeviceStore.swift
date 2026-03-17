@@ -177,13 +177,13 @@ final class AudioDeviceStore: ObservableObject {
             }
 
             // Verification: re-check after a delay that the restore stuck
-            self.scheduleAutoRestoreVerification(preferredUID: preferredUID, preferredDevice: preferredDevice)
+            self.scheduleAutoRestoreVerification(preferredUID: preferredUID)
         }
     }
 
     /// Verify the auto-restore actually stuck. macOS may switch back to a
     /// Bluetooth device after codec negotiation completes. Retry up to 3 times.
-    private func scheduleAutoRestoreVerification(preferredUID: String, preferredDevice: AudioDevice) {
+    private func scheduleAutoRestoreVerification(preferredUID: String) {
         autoRestoreTask = Task { @MainActor [weak self] in
             do {
                 try await Task.sleep(for: .seconds(1.5))
@@ -197,15 +197,20 @@ final class AudioDeviceStore: ObservableObject {
             self.refresh()
 
             if self.currentInputID == preferredUID {
-                // Restore confirmed — clean up
                 self.autoRestoreTargetUID = nil
                 self.autoRestoreRetryCount = 0
                 return
             }
 
-            // macOS reverted the input — retry if under the cap
             self.autoRestoreRetryCount += 1
             if self.autoRestoreRetryCount >= 3 {
+                self.autoRestoreTargetUID = nil
+                self.autoRestoreRetryCount = 0
+                return
+            }
+
+            // Re-lookup by UID — AudioDeviceID may have changed after reconnection
+            guard let freshDevice = self.devices.first(where: { $0.id == preferredUID }) else {
                 self.autoRestoreTargetUID = nil
                 self.autoRestoreRetryCount = 0
                 return
@@ -214,7 +219,7 @@ final class AudioDeviceStore: ObservableObject {
             do {
                 self.lastIntentionalSelectionUID = preferredUID
                 self.intentionalSelectionTimestamp = .now
-                try self.controller.setDefaultInputDevice(preferredDevice.audioDeviceID)
+                try self.controller.setDefaultInputDevice(freshDevice.audioDeviceID)
                 self.refresh()
             } catch {
                 self.errorMessage = error.localizedDescription
@@ -223,7 +228,7 @@ final class AudioDeviceStore: ObservableObject {
                 return
             }
 
-            self.scheduleAutoRestoreVerification(preferredUID: preferredUID, preferredDevice: preferredDevice)
+            self.scheduleAutoRestoreVerification(preferredUID: preferredUID)
         }
     }
 }

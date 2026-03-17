@@ -7,16 +7,16 @@ final class ThemeManager: ObservableObject {
     private var themeObservation: AnyCancellable?
 
     init(preferences: AppPreferences) {
-        applyTheme(preferences.theme)
         self.themeObservation = preferences.$theme.sink { [weak self] theme in
             self?.applyTheme(theme)
         }
     }
 
     private func applyTheme(_ theme: AppTheme) {
+        guard let app = NSApp else { return }
         let appearance = theme.windowAppearance
-        NSApp.appearance = appearance
-        for window in NSApp.windows {
+        app.appearance = appearance
+        for window in app.windows {
             window.appearance = appearance
         }
     }
