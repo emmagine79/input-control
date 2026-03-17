@@ -60,3 +60,28 @@ This file tracks all changes made to the project, when they were made, and why.
 - The fallback launch agent was being created but never actually launching at login
 
 **Files touched**: AudioDeviceStore.swift, LaunchAtLoginManager.swift, Info.plist, pending todos.md
+
+---
+
+## 2026-03-17 — Phase 3: Reliability Improvements (build 4)
+
+**M1: Sleep/wake listener**
+- Added `NSWorkspace.didWakeNotification` observer in AudioDeviceStore
+- On wake, waits 2 seconds then triggers hardware change handling
+- Ensures preferred device is restored after Bluetooth devices reconnect post-sleep
+
+**M2: Fixed CFString handling**
+- Created shared `readCFString(from:address:context:)` helper
+- Uses `Unmanaged<CFString>?` with `takeUnretainedValue()` (CF "Get" rule)
+- Applied to both `deviceName` and `deviceUID` for consistency
+- Eliminates previous warning about forming UnsafeMutableRawPointer to CFString
+
+**M3: errorMessage visibility**
+- Already fixed as `private(set)` in Phase 1 — no additional change needed
+
+**M4: Human-readable OSStatus errors**
+- Added lookup table in `AudioDeviceError` for common CoreAudio status codes
+- Covers: hardware not running, bad device, bad stream, unsupported operation, unsupported format, unknown property, bad property size
+- Users now see "the device does not exist or was disconnected" instead of opaque numbers
+
+**Files touched**: CoreAudioController.swift, AudioDeviceStore.swift, Info.plist, pending todos.md

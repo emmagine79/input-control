@@ -1,3 +1,4 @@
+import AppKit
 import CoreAudio
 import Foundation
 
@@ -13,6 +14,7 @@ final class AudioDeviceStore: ObservableObject {
     private var intentionalSelectionTimestamp: ContinuousClock.Instant?
     private var autoRestoreTask: Task<Void, Never>?
     private var debounceTask: Task<Void, Never>?
+    private var wakeTask: Task<Void, Never>?
 
     init(preferences: AppPreferences) {
         self.preferences = preferences
@@ -23,11 +25,38 @@ final class AudioDeviceStore: ObservableObject {
             }
         }
         refresh()
+        observeWakeNotifications()
     }
 
     deinit {
         autoRestoreTask?.cancel()
         debounceTask?.cancel()
+        wakeTask?.cancel()
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    private func observeWakeNotifications() {
+        NotificationCenter.default.addObserver(
+            forName: NSWorkspace.didWakeNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in
+                self?.handleWake()
+            }
+        }
+    }
+
+    private func handleWake() {
+        wakeTask?.cancel()
+        wakeTask = Task { @MainActor [weak self] in
+            do {
+                try await Task.sleep(for: .seconds(2))
+            } catch {
+                return
+            }
+            self?.handleAudioHardwareChange()
+        }
     }
 
     var currentDevice: AudioDevice? {

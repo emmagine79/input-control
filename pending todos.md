@@ -21,11 +21,10 @@ _Files: AudioDeviceStore.swift, LaunchAtLoginManager.swift_
 ## Phase 3: Reliability Improvements
 _Files: AudioDeviceStore.swift, CoreAudioController.swift, AppPreferences.swift_
 
-- [ ] **M1** — Add sleep/wake listener for post-wake device restore
-  - Listen for `NSWorkspace.didWakeNotification`, trigger delayed refresh
-- [ ] **M2** — Fix `takeUnretainedValue()` in `deviceName()` — potential memory issue
-- [ ] **M3** — Make `errorMessage` in AudioDeviceStore `private(set)`
-- [ ] **M4** — Add human-readable OSStatus error messages for common CoreAudio errors
+- [x] **M1** — Sleep/wake listener for post-wake restore *(done 2026-03-17, build 4)*
+- [x] **M2** — Fixed CFString handling with shared `readCFString` helper *(done 2026-03-17, build 4)*
+- [x] **M3** — `errorMessage` already `private(set)` *(done in Phase 1)*
+- [x] **M4** — Human-readable OSStatus error messages *(done 2026-03-17, build 4)*
 
 ## Phase 4: SwiftUI Architecture (Settings Window)
 _Files: SettingsWindowManager.swift, InputControlApp.swift, MenuBarContentView.swift_

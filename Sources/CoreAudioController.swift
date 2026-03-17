@@ -7,7 +7,29 @@ enum AudioDeviceError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case let .osStatus(status, context):
-            return "\(context) failed (\(status))."
+            let reason = Self.readableStatus(status)
+            return "\(context) failed — \(reason)."
+        }
+    }
+
+    private static func readableStatus(_ status: OSStatus) -> String {
+        switch status {
+        case kAudioHardwareNotRunningError:
+            return "the audio system is not running"
+        case kAudioHardwareBadDeviceError:
+            return "the device does not exist or was disconnected"
+        case kAudioHardwareBadStreamError:
+            return "the audio stream is invalid"
+        case kAudioHardwareUnsupportedOperationError:
+            return "this operation is not supported"
+        case kAudioDeviceUnsupportedFormatError:
+            return "the audio format is not supported"
+        case kAudioHardwareUnknownPropertyError:
+            return "the requested property does not exist"
+        case kAudioHardwareBadPropertySizeError:
+            return "unexpected property data size"
+        default:
+            return "error code \(status)"
         }
     }
 }
@@ -181,18 +203,9 @@ final class CoreAudioController: @unchecked Sendable {
             mScope: kAudioObjectPropertyScopeGlobal,
             mElement: kAudioObjectPropertyElementMain
         )
-        var propertySize = UInt32(MemoryLayout<Unmanaged<CFString>?>.size)
-        var unmanagedUID: Unmanaged<CFString>?
 
-        try check(
-            AudioObjectGetPropertyData(deviceID, &address, 0, nil, &propertySize, &unmanagedUID),
-            context: "Reading an audio device UID"
-        )
-
-        guard let resolvedUID = unmanagedUID?.takeUnretainedValue() as String? else {
-            return "\(deviceID)"
-        }
-        return resolvedUID
+        return try readCFString(from: deviceID, address: &address, context: "Reading an audio device UID")
+            ?? "\(deviceID)"
     }
 
     func deviceID(forUID uid: String) -> AudioDeviceID? {
@@ -213,17 +226,9 @@ final class CoreAudioController: @unchecked Sendable {
             mScope: kAudioObjectPropertyScopeGlobal,
             mElement: kAudioObjectPropertyElementMain
         )
-        var propertySize = UInt32(MemoryLayout<Unmanaged<CFString>?>.size)
-        var unmanagedName: Unmanaged<CFString>?
 
-        try check(
-            AudioObjectGetPropertyData(deviceID, &address, 0, nil, &propertySize, &unmanagedName),
-            context: "Reading an audio device name"
-        )
-
-        let resolvedName = unmanagedName?.takeUnretainedValue() as String?
-        let trimmedName = resolvedName?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        return trimmedName.isEmpty ? "Unknown Input" : trimmedName
+        return try readCFString(from: deviceID, address: &address, context: "Reading an audio device name")
+            ?? "Unknown Input"
     }
 
     private func transportType(deviceID: AudioDeviceID) throws -> UInt32 {
@@ -290,6 +295,28 @@ final class CoreAudioController: @unchecked Sendable {
         let buffers = UnsafeMutableAudioBufferListPointer(bufferList)
 
         return buffers.contains { $0.mNumberChannels > 0 }
+    }
+
+    /// Reads a CFString property from a CoreAudio object safely.
+    /// CoreAudio string properties (name, UID) follow CF "Get" rule — caller does not own the reference.
+    private func readCFString(
+        from objectID: AudioDeviceID,
+        address: inout AudioObjectPropertyAddress,
+        context: String
+    ) throws -> String? {
+        var propertySize = UInt32(MemoryLayout<Unmanaged<CFString>?>.size)
+        var unmanagedRef: Unmanaged<CFString>?
+
+        try check(
+            AudioObjectGetPropertyData(objectID, &address, 0, nil, &propertySize, &unmanagedRef),
+            context: context
+        )
+
+        guard let ref = unmanagedRef else {
+            return nil
+        }
+        let value = (ref.takeUnretainedValue() as String).trimmingCharacters(in: .whitespacesAndNewlines)
+        return value.isEmpty ? nil : value
     }
 
     private func check(_ status: OSStatus, context: String) throws {
