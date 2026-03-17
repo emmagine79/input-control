@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.1 — 2026-03-17
+
+### Fixed
+- Settings window now opens reliably from menu bar (replaced broken `NSApp.sendAction` hack with native `@Environment(\.openSettings)`)
+- Preferred (pinned) input source no longer overridden by Bluetooth device connections (auto-restore now survives rapid CoreAudio callbacks and retries up to 3 times)
+
+### Changed
+- `ThemeManager` extracted from misnamed `SettingsWindowManager.swift` into its own file
+- `ThemeManager` no longer uses unnecessary `@StateObject` wrapper in `InputControlApp`
+- Deployment target raised to macOS 14 (was 13 in Info.plist, already 14 in Package.swift)
+
 ## 1.1.0 — 2026-03-17
 
 ### Fixed

@@ -121,3 +121,56 @@ This file tracks all changes made to the project, when they were made, and why.
 
 **Files created**: CHANGELOG.md
 **Files touched**: Info.plist, pending todos.md
+
+---
+
+## 2026-03-17 — Phase 5: Settings Window Fix (build 7)
+
+**B1: Settings window doesn't open from menu bar**
+- Root cause: `NSApp.sendAction(Selector(("showSettingsWindow:")))` has no responder target in a MenuBarExtra-only app — the action is silently dropped
+- Added `@Environment(\.openSettings)` to `MenuBarContentView` (requires macOS 14+)
+- Settings button now calls `openSettings()` directly + `NSApp.activate()` to bring window to front
+- Removed dead `openSettings()` method from `AppNavigation`
+- Bumped `LSMinimumSystemVersion` from 13.0 to 14.0 in Info.plist (Package.swift already specified `.macOS(.v14)`)
+
+**Files touched**: MenuBarContentView.swift, AppNavigation.swift, Package.swift, Info.plist
+
+---
+
+## 2026-03-17 — Phase 6: Auto-Restore Reliability (build 7)
+
+**B2: Pinned source overridden by Bluetooth connections**
+- Root cause: Bluetooth connections fire multiple CoreAudio callbacks over several seconds. Each call to `handleAudioHardwareChange()` cancelled the pending 350ms `autoRestoreTask` before it could fire, silently giving up.
+- Added `autoRestoreTargetUID` to track what device the current task targets — only cancel if the target changes
+- If an existing task is already restoring to the correct preferred device, new callbacks no longer cancel it
+- Added `scheduleAutoRestoreVerification()`: after restore completes, waits 1.5s and verifies the input didn't revert. If macOS switched back (e.g., late BT codec negotiation), retries up to 3 times
+- Added `autoRestoreRetryCount` with cap of 3 to prevent infinite loops
+
+**Files touched**: AudioDeviceStore.swift
+
+---
+
+## 2026-03-17 — Phase 7: Cleanup (build 7)
+
+**B3: Rename SettingsWindowManager.swift → ThemeManager.swift**
+- File only contained `ThemeManager` after Phase 4 removed the old NSWindow code
+- Updated Xcode project references
+
+**B4: Fix ThemeManager storage in InputControlApp**
+- Changed from `@StateObject` to plain `let` property
+- `ThemeManager` is never read by any view via `@EnvironmentObject` — it only observes preferences via Combine and applies `NSApp.appearance`
+- Retaining as a stored property keeps the subscription alive without `@StateObject` overhead
+
+**Files touched**: SettingsWindowManager.swift (deleted), ThemeManager.swift (created), InputControlApp.swift, project.pbxproj
+
+---
+
+## 2026-03-17 — Release 1.1.1 (build 7)
+
+**Version bump**: 1.1.0 (build 6) → 1.1.1 (build 7)
+
+**Release artifacts**:
+- `dist/Input Control.app` — latest build
+- `dist/Input Control v1.1.1 (2026-03-17_1214).app` — timestamped archive
+
+**Files touched**: Info.plist, CHANGELOG.md, pending todos.md

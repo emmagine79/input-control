@@ -1,7 +1,7 @@
 # Input Control — Pending Todos
 
-**Current version**: 1.0 (build 1)
-**Internal dev version**: 1.0.1-dev
+**Current version**: 1.1.0 (build 6)
+**Internal dev version**: 1.1.1-dev
 
 ---
 
@@ -40,4 +40,41 @@ _Files: SettingsWindowManager.swift, InputControlApp.swift, MenuBarContentView.s
 - [x] Final compile + test pass *(all 4 phases compiled clean with both SPM and xcodebuild)*
 - [x] Bump version to 1.1.0 (build 6) *(done 2026-03-17)*
 - [x] Update CHANGELOG *(done 2026-03-17)*
+- [x] Push as release to GitHub *(done 2026-03-17, v1.1.0)*
+
+---
+
+## v1.1.1 — Bug Fixes (found 2026-03-17 post-release audit)
+
+### Phase 5: Settings Window Fix
+_Files: MenuBarContentView.swift, AppNavigation.swift_
+
+- [x] **B1** — Settings window does not open from menu bar *(done 2026-03-17, build 7)*
+  - **Root cause:** `NSApp.sendAction(Selector(("showSettingsWindow:")))` is unreliable in MenuBarExtra-only apps — no responder in the chain handles it
+  - **Fix:** Use `@Environment(\.openSettings)` (macOS 14+) directly in `MenuBarContentView` footer button instead of routing through `AppNavigation.openSettings()`. For macOS 13, fall back to `NSApp.sendAction` but call `NSApp.activate(ignoringOtherApps: true)` BEFORE the action, not after
+  - **Validation:** Click "Settings…" button in menu bar dropdown → window must appear and come to front
+
+### Phase 6: Auto-Restore Reliability
+_Files: AudioDeviceStore.swift_
+
+- [x] **B2** — Pinned (preferred) source overridden by newly connected Bluetooth device *(done 2026-03-17, build 7)*
+  - **Root cause:** Bluetooth connections fire multiple CoreAudio callbacks over several seconds (device list, default input, codec negotiation). Each callback cancels the pending `autoRestoreTask` (line 145) before 350ms elapses. If the final callback's restore is also cancelled by a late callback, auto-restore silently gives up.
+  - **Fix:** Replace single-shot auto-restore with a resilient approach:
+    1. Don't cancel `autoRestoreTask` if it's already targeting the correct preferred device
+    2. After the debounced handler completes, schedule a "verification check" at ~2s that re-checks whether the input matches preferred and retries if not
+    3. Add a max-retry cap (e.g., 3 attempts) to avoid infinite loops with devices that macOS forcefully redirects
+  - **Validation:** Connect a Bluetooth headset → input should snap back to the pinned source within a few seconds
+
+### Phase 7: Cleanup
+_Files: SettingsWindowManager.swift → ThemeManager.swift, InputControlApp.swift_
+
+- [x] **B3** — Rename `SettingsWindowManager.swift` to `ThemeManager.swift` *(done 2026-03-17, build 7)* (it only contains `ThemeManager` after Phase 4 removed the old settings window code)
+- [x] **B4** — `ThemeManager` is created in `InputControlApp` but never injected *(done 2026-03-17, build 7)* as `.environmentObject()` — works by accident via Combine subscription, but fragile. Either inject it or keep it as a plain stored property (not `@StateObject`) since no view reads from it
+
+### Post-Fix
+
+- [x] Compile + test pass *(done 2026-03-17, build 7)*
+- [x] Bump version to 1.1.1 *(done 2026-03-17)*
+- [x] Update CHANGELOG *(done 2026-03-17)*
+- [x] Build timestamped artifact to dist/ *(done 2026-03-17)*
 - [ ] Push as release to GitHub

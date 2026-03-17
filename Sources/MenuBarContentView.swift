@@ -3,6 +3,7 @@ import SwiftUI
 struct MenuBarContentView: View {
     @EnvironmentObject private var deviceStore: AudioDeviceStore
     @EnvironmentObject private var preferences: AppPreferences
+    @Environment(\.openSettings) private var openSettings
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -88,7 +89,8 @@ struct MenuBarContentView: View {
                 Spacer()
 
                 Button("Settings\u{2026}") {
-                    AppNavigation.openSettings()
+                    openSettings()
+                    NSApp.activate()
                 }
             }
             .buttonStyle(.bordered)

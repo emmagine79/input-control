@@ -18,7 +18,7 @@
 		A00001000000000000000009 /* MenuBarLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00002000000000000000009 /* MenuBarLabelView.swift */; };
 		A0000100000000000000000A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000200000000000000000A /* SettingsView.swift */; };
 		A0000100000000000000000B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000200000000000000000D /* Assets.xcassets */; };
-		A0000100000000000000000C /* SettingsWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000200000000000000000E /* SettingsWindowManager.swift */; };
+		A0000100000000000000000C /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000200000000000000000E /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		A0000200000000000000000B /* Input Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Input Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0000200000000000000000C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0000200000000000000000D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A0000200000000000000000E /* SettingsWindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowManager.swift; sourceTree = "<group>"; };
+		A0000200000000000000000E /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +71,7 @@
 				A00002000000000000000008 /* MenuBarContentView.swift */,
 				A00002000000000000000009 /* MenuBarLabelView.swift */,
 				A0000200000000000000000A /* SettingsView.swift */,
-				A0000200000000000000000E /* SettingsWindowManager.swift */,
+				A0000200000000000000000E /* ThemeManager.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 				A00001000000000000000008 /* MenuBarContentView.swift in Sources */,
 				A00001000000000000000009 /* MenuBarLabelView.swift in Sources */,
 				A0000100000000000000000A /* SettingsView.swift in Sources */,
-				A0000100000000000000000C /* SettingsWindowManager.swift in Sources */,
+				A0000100000000000000000C /* ThemeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

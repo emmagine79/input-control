@@ -5,7 +5,7 @@ struct InputControlApp: App {
     @StateObject private var preferences: AppPreferences
     @StateObject private var deviceStore: AudioDeviceStore
     @StateObject private var launchAtLoginManager: LaunchAtLoginManager
-    @StateObject private var themeManager: ThemeManager
+    private let themeManager: ThemeManager
 
     init() {
         let preferences = AppPreferences()
@@ -14,7 +14,7 @@ struct InputControlApp: App {
         _preferences = StateObject(wrappedValue: preferences)
         _deviceStore = StateObject(wrappedValue: deviceStore)
         _launchAtLoginManager = StateObject(wrappedValue: launchAtLoginManager)
-        _themeManager = StateObject(wrappedValue: ThemeManager(preferences: preferences))
+        self.themeManager = ThemeManager(preferences: preferences)
     }
 
     var body: some Scene {
