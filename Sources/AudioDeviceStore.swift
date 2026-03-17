@@ -10,14 +10,16 @@ final class AudioDeviceStore: ObservableObject {
     private let preferences: AppPreferences
     private let controller: CoreAudioController
     private var lastIntentionalSelectionUID: String?
+    private var intentionalSelectionTimestamp: ContinuousClock.Instant?
     private var autoRestoreTask: Task<Void, Never>?
+    private var debounceTask: Task<Void, Never>?
 
     init(preferences: AppPreferences) {
         self.preferences = preferences
         self.controller = CoreAudioController()
         self.controller.onChange = { [weak self] in
             Task { @MainActor in
-                self?.handleAudioHardwareChange()
+                self?.scheduleHardwareChangeHandling()
             }
         }
         refresh()
@@ -25,6 +27,7 @@ final class AudioDeviceStore: ObservableObject {
 
     deinit {
         autoRestoreTask?.cancel()
+        debounceTask?.cancel()
     }
 
     var currentDevice: AudioDevice? {
@@ -44,6 +47,7 @@ final class AudioDeviceStore: ObservableObject {
 
     func selectInput(_ device: AudioDevice) {
         lastIntentionalSelectionUID = device.id
+        intentionalSelectionTimestamp = .now
 
         do {
             try controller.setDefaultInputDevice(device.audioDeviceID)
@@ -57,12 +61,40 @@ final class AudioDeviceStore: ObservableObject {
         preferences.preferredInputUID = currentInputID
     }
 
+    /// Debounce rapid-fire CoreAudio notifications into a single handler call.
+    /// CoreAudio commonly fires multiple callbacks for a single device change
+    /// (one for device list, one for default input). Coalescing prevents the
+    /// first callback from clearing intentional-selection state before the
+    /// second arrives.
+    private func scheduleHardwareChangeHandling() {
+        debounceTask?.cancel()
+        debounceTask = Task { @MainActor [weak self] in
+            do {
+                try await Task.sleep(for: .milliseconds(100))
+            } catch {
+                return
+            }
+            self?.handleAudioHardwareChange()
+        }
+    }
+
     private func handleAudioHardwareChange() {
         refresh()
 
-        guard currentInputID != lastIntentionalSelectionUID else {
+        // Clear intentional-selection flag only if it was set recently (within 2s).
+        // This prevents stale flags from suppressing auto-restore indefinitely.
+        if let lastUID = lastIntentionalSelectionUID,
+           currentInputID == lastUID {
+            if let ts = intentionalSelectionTimestamp,
+               ContinuousClock.now - ts < .seconds(2) {
+                // Recent intentional selection confirmed — skip auto-restore this cycle
+                lastIntentionalSelectionUID = nil
+                intentionalSelectionTimestamp = nil
+                return
+            }
+            // Stale flag — clear it and proceed with auto-restore logic
             lastIntentionalSelectionUID = nil
-            return
+            intentionalSelectionTimestamp = nil
         }
 
         guard preferences.autoRestorePreferredInput else {
@@ -83,13 +115,18 @@ final class AudioDeviceStore: ObservableObject {
 
         autoRestoreTask?.cancel()
         autoRestoreTask = Task { @MainActor [weak self] in
-            try? await Task.sleep(for: .milliseconds(350))
+            do {
+                try await Task.sleep(for: .milliseconds(350))
+            } catch {
+                return // Cancelled — don't restore
+            }
             guard let self else {
                 return
             }
 
             do {
                 self.lastIntentionalSelectionUID = preferredUID
+                self.intentionalSelectionTimestamp = .now
                 try self.controller.setDefaultInputDevice(preferredDevice.audioDeviceID)
                 self.refresh()
             } catch {

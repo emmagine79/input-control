@@ -14,11 +14,9 @@ _Files: CoreAudioController.swift, AppPreferences.swift, AudioDevice.swift, Audi
 ## Phase 2: Auto-Restore Logic Bugs
 _Files: AudioDeviceStore.swift, LaunchAtLoginManager.swift_
 
-- [ ] **H1** — Fix `try?` swallowing CancellationError in auto-restore Task.sleep
-  - Change `try?` to `try` and catch CancellationError to return early
-- [ ] **H2** — Fix `lastIntentionalSelectionID` cleared on first callback (multiple CoreAudio notifications bypass it)
-  - Debounce hardware change callbacks or use time-based clearing
-- [ ] **H3** — Fix `RunAtLoad: false` in fallback launch agent plist (should be `true`)
+- [x] **H1** — Fix CancellationError swallowing in auto-restore *(done 2026-03-17, build 3)*
+- [x] **H2** — Debounce hardware change + time-based intentional-selection clearing *(done 2026-03-17, build 3)*
+- [x] **H3** — Fix `RunAtLoad: false` → `true` in launch agent plist *(done 2026-03-17, build 3)*
 
 ## Phase 3: Reliability Improvements
 _Files: AudioDeviceStore.swift, CoreAudioController.swift, AppPreferences.swift_

@@ -95,7 +95,7 @@ final class LaunchAtLoginManager: ObservableObject {
                 "-a",
                 launchTargetPath
             ],
-            "RunAtLoad": false
+            "RunAtLoad": true
         ]
 
         let plistData = try PropertyListSerialization.data(fromPropertyList: payload, format: .xml, options: 0)
