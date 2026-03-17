@@ -2,7 +2,8 @@ import CoreAudio
 import Foundation
 
 struct AudioDevice: Identifiable, Hashable {
-    let id: AudioDeviceID
+    let id: String
+    let audioDeviceID: AudioDeviceID
     let name: String
     let isDefault: Bool
     let transportType: UInt32

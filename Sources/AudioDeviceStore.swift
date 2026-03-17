@@ -4,12 +4,12 @@ import Foundation
 @MainActor
 final class AudioDeviceStore: ObservableObject {
     @Published private(set) var devices: [AudioDevice] = []
-    @Published private(set) var currentInputID: AudioDeviceID?
-    @Published var errorMessage: String?
+    @Published private(set) var currentInputID: String?
+    @Published private(set) var errorMessage: String?
 
     private let preferences: AppPreferences
     private let controller: CoreAudioController
-    private var lastIntentionalSelectionID: AudioDeviceID?
+    private var lastIntentionalSelectionUID: String?
     private var autoRestoreTask: Task<Void, Never>?
 
     init(preferences: AppPreferences) {
@@ -43,10 +43,10 @@ final class AudioDeviceStore: ObservableObject {
     }
 
     func selectInput(_ device: AudioDevice) {
-        lastIntentionalSelectionID = device.id
+        lastIntentionalSelectionUID = device.id
 
         do {
-            try controller.setDefaultInputDevice(device.id)
+            try controller.setDefaultInputDevice(device.audioDeviceID)
             refresh()
         } catch {
             errorMessage = error.localizedDescription
@@ -54,14 +54,14 @@ final class AudioDeviceStore: ObservableObject {
     }
 
     func makeCurrentDevicePreferred() {
-        preferences.preferredInputID = currentInputID
+        preferences.preferredInputUID = currentInputID
     }
 
     private func handleAudioHardwareChange() {
         refresh()
 
-        guard currentInputID != lastIntentionalSelectionID else {
-            lastIntentionalSelectionID = nil
+        guard currentInputID != lastIntentionalSelectionUID else {
+            lastIntentionalSelectionUID = nil
             return
         }
 
@@ -69,15 +69,15 @@ final class AudioDeviceStore: ObservableObject {
             return
         }
 
-        guard let preferredInputID = preferences.preferredInputID else {
+        guard let preferredUID = preferences.preferredInputUID else {
             return
         }
 
-        guard currentInputID != preferredInputID else {
+        guard currentInputID != preferredUID else {
             return
         }
 
-        guard devices.contains(where: { $0.id == preferredInputID }) else {
+        guard let preferredDevice = devices.first(where: { $0.id == preferredUID }) else {
             return
         }
 
@@ -89,8 +89,8 @@ final class AudioDeviceStore: ObservableObject {
             }
 
             do {
-                self.lastIntentionalSelectionID = preferredInputID
-                try self.controller.setDefaultInputDevice(preferredInputID)
+                self.lastIntentionalSelectionUID = preferredUID
+                try self.controller.setDefaultInputDevice(preferredDevice.audioDeviceID)
                 self.refresh()
             } catch {
                 self.errorMessage = error.localizedDescription

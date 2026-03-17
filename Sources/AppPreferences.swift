@@ -1,5 +1,4 @@
 import AppKit
-import CoreAudio
 import Foundation
 
 enum AppTheme: String, CaseIterable, Identifiable {
@@ -42,10 +41,10 @@ final class AppPreferences: ObservableObject {
         static let theme = "theme"
     }
 
-    @Published var preferredInputID: AudioDeviceID? {
+    @Published var preferredInputUID: String? {
         didSet {
-            if let preferredInputID {
-                defaults.set(Int(preferredInputID), forKey: Key.preferredInputID)
+            if let preferredInputUID {
+                defaults.set(preferredInputUID, forKey: Key.preferredInputID)
             } else {
                 defaults.removeObject(forKey: Key.preferredInputID)
             }
@@ -81,11 +80,14 @@ final class AppPreferences: ObservableObject {
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
 
-        if defaults.object(forKey: Key.preferredInputID) != nil {
-            let storedValue = defaults.integer(forKey: Key.preferredInputID)
-            self.preferredInputID = AudioDeviceID(storedValue)
+        if let storedUID = defaults.string(forKey: Key.preferredInputID) {
+            self.preferredInputUID = storedUID
+        } else if defaults.object(forKey: Key.preferredInputID) != nil {
+            // Migration: clear legacy integer-based device ID
+            defaults.removeObject(forKey: Key.preferredInputID)
+            self.preferredInputUID = nil
         } else {
-            self.preferredInputID = nil
+            self.preferredInputUID = nil
         }
 
         if defaults.object(forKey: Key.autoRestorePreferredInput) != nil {

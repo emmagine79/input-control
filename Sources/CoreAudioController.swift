@@ -12,21 +12,37 @@ enum AudioDeviceError: LocalizedError {
     }
 }
 
-final class CoreAudioController {
+final class CoreAudioController: @unchecked Sendable {
     private static let audioPropertyDidChange: AudioObjectPropertyListenerProc = { _, _, _, clientData in
         guard let clientData else {
             return noErr
         }
 
         let controller = Unmanaged<CoreAudioController>.fromOpaque(clientData).takeUnretainedValue()
-        controller.onChange?()
+        controller.lock.lock()
+        let callback = controller._onChange
+        controller.lock.unlock()
+        callback?()
         return noErr
     }
 
     private let systemObjectID = AudioObjectID(kAudioObjectSystemObject)
     private var listenerAddresses: [AudioObjectPropertyAddress] = []
+    private let lock = NSLock()
+    private var _onChange: (() -> Void)?
 
-    var onChange: (() -> Void)?
+    var onChange: (() -> Void)? {
+        get {
+            lock.lock()
+            defer { lock.unlock() }
+            return _onChange
+        }
+        set {
+            lock.lock()
+            _onChange = newValue
+            lock.unlock()
+        }
+    }
 
     init() {
         registerSystemListeners()
@@ -51,18 +67,19 @@ final class CoreAudioController {
             .filter { try deviceIsAlive(deviceID: $0) }
             .map { deviceID in
                 AudioDevice(
-                    id: deviceID,
+                    id: try deviceUID(deviceID: deviceID),
+                    audioDeviceID: deviceID,
                     name: try deviceName(deviceID: deviceID),
                     isDefault: deviceID == defaultInputID,
                     transportType: try transportType(deviceID: deviceID)
                 )
             }
             .sorted { lhs, rhs in
-                if lhs.id == defaultInputID, rhs.id != defaultInputID {
+                if lhs.isDefault, !rhs.isDefault {
                     return true
                 }
 
-                if lhs.id != defaultInputID, rhs.id == defaultInputID {
+                if !lhs.isDefault, rhs.isDefault {
                     return false
                 }
 
@@ -156,6 +173,38 @@ final class CoreAudioController {
         )
 
         return deviceIDs
+    }
+
+    func deviceUID(deviceID: AudioDeviceID) throws -> String {
+        var address = AudioObjectPropertyAddress(
+            mSelector: kAudioDevicePropertyDeviceUID,
+            mScope: kAudioObjectPropertyScopeGlobal,
+            mElement: kAudioObjectPropertyElementMain
+        )
+        var propertySize = UInt32(MemoryLayout<Unmanaged<CFString>?>.size)
+        var unmanagedUID: Unmanaged<CFString>?
+
+        try check(
+            AudioObjectGetPropertyData(deviceID, &address, 0, nil, &propertySize, &unmanagedUID),
+            context: "Reading an audio device UID"
+        )
+
+        guard let resolvedUID = unmanagedUID?.takeUnretainedValue() as String? else {
+            return "\(deviceID)"
+        }
+        return resolvedUID
+    }
+
+    func deviceID(forUID uid: String) -> AudioDeviceID? {
+        guard let allIDs = try? allDeviceIDs() else {
+            return nil
+        }
+        for id in allIDs {
+            if let deviceUID = try? deviceUID(deviceID: id), deviceUID == uid {
+                return id
+            }
+        }
+        return nil
     }
 
     private func deviceName(deviceID: AudioDeviceID) throws -> String {

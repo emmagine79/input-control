@@ -1,4 +1,3 @@
-import CoreAudio
 import SwiftUI
 
 struct SettingsView: View {
@@ -82,15 +81,15 @@ struct SettingsView: View {
     private var preferredInputSection: some View {
         Section("Preferred Input") {
             Picker("Preferred input", selection: Binding(
-                get: { preferences.preferredInputID },
-                set: { preferences.preferredInputID = $0 }
+                get: { preferences.preferredInputUID },
+                set: { preferences.preferredInputUID = $0 }
             )) {
                 Text("None")
-                    .tag(AudioDeviceID?.none)
+                    .tag(String?.none)
 
                 ForEach(deviceStore.devices) { device in
                     Text(device.name)
-                        .tag(AudioDeviceID?.some(device.id))
+                        .tag(String?.some(device.id))
                 }
             }
 
@@ -104,8 +103,8 @@ struct SettingsView: View {
 
                 Spacer()
 
-                if let preferredInputID = preferences.preferredInputID,
-                   let preferredDevice = deviceStore.devices.first(where: { $0.id == preferredInputID }) {
+                if let preferredUID = preferences.preferredInputUID,
+                   let preferredDevice = deviceStore.devices.first(where: { $0.id == preferredUID }) {
                     Text("Preferred: \(preferredDevice.name)")
                         .font(.system(size: 12, weight: .medium, design: .monospaced))
                         .foregroundStyle(.secondary)

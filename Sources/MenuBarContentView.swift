@@ -140,7 +140,7 @@ struct MenuBarContentView: View {
                         .foregroundStyle(.primary)
                         .lineLimit(1)
 
-                    if preferences.preferredInputID == device.id {
+                    if preferences.preferredInputUID == device.id {
                         badge("Preferred")
                     }
                 }
