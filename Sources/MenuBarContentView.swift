@@ -97,7 +97,7 @@ struct MenuBarContentView: View {
             .controlSize(.large)
 
             Button("Quit Input Control") {
-                AppNavigation.quit()
+                NSApplication.shared.terminate(nil)
             }
             .buttonStyle(.borderless)
             .foregroundStyle(.secondary)

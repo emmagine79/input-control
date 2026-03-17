@@ -8,6 +8,9 @@ struct AudioDevice: Identifiable, Hashable {
     let isDefault: Bool
     let transportType: UInt32
 
+    static func == (lhs: AudioDevice, rhs: AudioDevice) -> Bool { lhs.id == rhs.id }
+    func hash(into hasher: inout Hasher) { hasher.combine(id) }
+
     var transportLabel: String {
         switch transportType {
         case kAudioDeviceTransportTypeBuiltIn:

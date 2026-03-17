@@ -1,5 +1,4 @@
 import AppKit
-import Foundation
 
 enum AppTheme: String, CaseIterable, Identifiable {
     case system

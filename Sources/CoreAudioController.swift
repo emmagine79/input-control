@@ -84,16 +84,20 @@ final class CoreAudioController: @unchecked Sendable {
     func inputDevices() throws -> [AudioDevice] {
         let defaultInputID = try defaultInputDeviceID()
 
-        return try allDeviceIDs()
-            .filter { try hasInputChannels(deviceID: $0) }
-            .filter { try deviceIsAlive(deviceID: $0) }
-            .map { deviceID in
-                AudioDevice(
-                    id: try deviceUID(deviceID: deviceID),
+        return ((try? allDeviceIDs()) ?? [])
+            .compactMap { deviceID -> AudioDevice? in
+                guard (try? hasInputChannels(deviceID: deviceID)) == true,
+                      (try? deviceIsAlive(deviceID: deviceID)) == true,
+                      let uid = try? deviceUID(deviceID: deviceID),
+                      let name = try? deviceName(deviceID: deviceID),
+                      let transport = try? transportType(deviceID: deviceID)
+                else { return nil }
+                return AudioDevice(
+                    id: uid,
                     audioDeviceID: deviceID,
-                    name: try deviceName(deviceID: deviceID),
+                    name: name,
                     isDefault: deviceID == defaultInputID,
-                    transportType: try transportType(deviceID: deviceID)
+                    transportType: transport
                 )
             }
             .sorted { lhs, rhs in
@@ -206,18 +210,6 @@ final class CoreAudioController: @unchecked Sendable {
 
         return try readCFString(from: deviceID, address: &address, context: "Reading an audio device UID")
             ?? "\(deviceID)"
-    }
-
-    func deviceID(forUID uid: String) -> AudioDeviceID? {
-        guard let allIDs = try? allDeviceIDs() else {
-            return nil
-        }
-        for id in allIDs {
-            if let deviceUID = try? deviceUID(deviceID: id), deviceUID == uid {
-                return id
-            }
-        }
-        return nil
     }
 
     private func deviceName(deviceID: AudioDeviceID) throws -> String {

@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.2.0 — 2026-03-17
+
+### Fixed
+- Crash on launch caused by ThemeManager accessing NSApp before it was initialized
+- Auto-restore now re-looks up device by stable UID before every restore attempt (AudioDeviceID can change after Bluetooth reconnection)
+- NotificationCenter wake observer properly stored and removed (was silently leaking)
+- AudioDevice Hashable conformance now uses only the stable UID (transient audioDeviceID and isDefault no longer affect hashing)
+- Single device query failure no longer kills entire device list (graceful per-device error handling)
+- Build configuration versions synchronized across Info.plist and Xcode project
+
+### Changed
+- Removed AppNavigation wrapper (quit calls NSApplication.terminate directly)
+- Removed dead `deviceID(forUID:)` method from CoreAudioController
+- Cleaned up redundant imports across codebase
+
 ## 1.1.1 — 2026-03-17
 
 ### Fixed

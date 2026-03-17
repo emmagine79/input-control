@@ -1,7 +1,7 @@
 # Input Control — Pending Todos
 
-**Current version**: 1.1.0 (build 6)
-**Internal dev version**: 1.1.1-dev
+**Current version**: 1.2.0 (build 8)
+**Internal dev version**: 1.2.1-dev
 
 ---
 
@@ -77,4 +77,4 @@ _Files: SettingsWindowManager.swift → ThemeManager.swift, InputControlApp.swif
 - [x] Bump version to 1.1.1 *(done 2026-03-17)*
 - [x] Update CHANGELOG *(done 2026-03-17)*
 - [x] Build timestamped artifact to dist/ *(done 2026-03-17)*
-- [ ] Push as release to GitHub
+- [x] Push as release to GitHub *(done 2026-03-17, v1.1.1)*

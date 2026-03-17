@@ -1,6 +1,5 @@
 import AppKit
 import CoreAudio
-import Foundation
 
 @MainActor
 final class AudioDeviceStore: ObservableObject {
@@ -17,6 +16,7 @@ final class AudioDeviceStore: ObservableObject {
     private var autoRestoreRetryCount = 0
     private var debounceTask: Task<Void, Never>?
     private var wakeTask: Task<Void, Never>?
+    private nonisolated(unsafe) var wakeObserver: NSObjectProtocol?
 
     init(preferences: AppPreferences) {
         self.preferences = preferences
@@ -34,11 +34,13 @@ final class AudioDeviceStore: ObservableObject {
         autoRestoreTask?.cancel()
         debounceTask?.cancel()
         wakeTask?.cancel()
-        NotificationCenter.default.removeObserver(self)
+        if let wakeObserver {
+            NotificationCenter.default.removeObserver(wakeObserver)
+        }
     }
 
     private func observeWakeNotifications() {
-        NotificationCenter.default.addObserver(
+        wakeObserver = NotificationCenter.default.addObserver(
             forName: NSWorkspace.didWakeNotification,
             object: nil,
             queue: .main
@@ -140,7 +142,7 @@ final class AudioDeviceStore: ObservableObject {
             return
         }
 
-        guard let preferredDevice = devices.first(where: { $0.id == preferredUID }) else {
+        guard devices.contains(where: { $0.id == preferredUID }) else {
             return
         }
 
@@ -164,10 +166,17 @@ final class AudioDeviceStore: ObservableObject {
                 return
             }
 
+            // Re-lookup by UID — AudioDeviceID may have changed after sleep
+            guard let freshDevice = self.devices.first(where: { $0.id == preferredUID }) else {
+                self.autoRestoreTargetUID = nil
+                self.autoRestoreRetryCount = 0
+                return
+            }
+
             do {
                 self.lastIntentionalSelectionUID = preferredUID
                 self.intentionalSelectionTimestamp = .now
-                try self.controller.setDefaultInputDevice(preferredDevice.audioDeviceID)
+                try self.controller.setDefaultInputDevice(freshDevice.audioDeviceID)
                 self.refresh()
             } catch {
                 self.errorMessage = error.localizedDescription

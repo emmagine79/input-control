@@ -174,3 +174,51 @@ This file tracks all changes made to the project, when they were made, and why.
 - `dist/Input Control v1.1.1 (2026-03-17_1214).app` — timestamped archive
 
 **Files touched**: Info.plist, CHANGELOG.md, pending todos.md
+
+---
+
+## 2026-03-17 — Phase 8: QA Audit Fixes (build 8)
+
+**Full codebase audit via SwiftUI expert review + code reviewer QA.**
+
+**C1: Version mismatch in pbxproj**
+- Synchronized `CURRENT_PROJECT_VERSION` (→ 8) and `MARKETING_VERSION` (→ 1.2.0) in all build configurations
+
+**C2: NotificationCenter observer leak**
+- Stored wake observer token as `nonisolated(unsafe) var wakeObserver: NSObjectProtocol?`
+- `deinit` now removes by token instead of invalid `removeObserver(self)`
+
+**H1: Unstable AudioDevice.Hashable**
+- Added explicit `Equatable`/`Hashable` conformance using only `id` (stable UID)
+- Prevents transient `audioDeviceID` and `isDefault` from affecting hashing
+
+**H2: Stale AudioDeviceID in initial auto-restore**
+- Initial restore now re-looks up device by UID after the 350ms sleep, matching the retry path
+
+**M2: inputDevices() all-or-nothing failure**
+- Changed `filter`/`map` chain to `compactMap` with `try?` per device
+- One bad device no longer kills the entire list; `defaultInputDeviceID()` still throws correctly
+
+**M4: Dead AppNavigation wrapper removed**
+- Deleted `AppNavigation.swift`; quit button calls `NSApplication.shared.terminate(nil)` directly
+- Removed from Xcode project file
+
+**L1-L3: Import cleanup**
+- Removed dead `deviceID(forUID:)` from CoreAudioController
+- Removed redundant `import Foundation` from AudioDeviceStore, AppPreferences
+- Removed redundant `import SwiftUI` from ThemeManager
+
+**Files deleted**: AppNavigation.swift
+**Files touched**: AudioDeviceStore.swift, AudioDevice.swift, CoreAudioController.swift, ThemeManager.swift, MenuBarContentView.swift, AppPreferences.swift, project.pbxproj, Info.plist, CHANGELOG.md, pending todos.md
+
+---
+
+## 2026-03-17 — Release 1.2.0 (build 8)
+
+**Version bump**: 1.1.1 (build 7) → 1.2.0 (build 8)
+
+**Release artifacts**:
+- `dist/Input Control.app` — latest build
+- `dist/Input Control v1.2.0 (2026-03-17_1341).app` — timestamped archive
+
+**Files touched**: Info.plist, project.pbxproj, CHANGELOG.md, DEVLOG.md, pending todos.md

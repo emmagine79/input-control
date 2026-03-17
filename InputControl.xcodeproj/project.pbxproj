@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A00001000000000000000001 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00002000000000000000001 /* AppNavigation.swift */; };
-		A00001000000000000000002 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00002000000000000000002 /* AppPreferences.swift */; };
+A00001000000000000000002 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00002000000000000000002 /* AppPreferences.swift */; };
 		A00001000000000000000003 /* AudioDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00002000000000000000003 /* AudioDevice.swift */; };
 		A00001000000000000000004 /* AudioDeviceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00002000000000000000004 /* AudioDeviceStore.swift */; };
 		A00001000000000000000005 /* CoreAudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00002000000000000000005 /* CoreAudioController.swift */; };
@@ -22,8 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A00002000000000000000001 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
-		A00002000000000000000002 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
+A00002000000000000000002 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
 		A00002000000000000000003 /* AudioDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDevice.swift; sourceTree = "<group>"; };
 		A00002000000000000000004 /* AudioDeviceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceStore.swift; sourceTree = "<group>"; };
 		A00002000000000000000005 /* CoreAudioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAudioController.swift; sourceTree = "<group>"; };
@@ -61,8 +59,7 @@
 		A00004000000000000000002 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A00002000000000000000001 /* AppNavigation.swift */,
-				A00002000000000000000002 /* AppPreferences.swift */,
+A00002000000000000000002 /* AppPreferences.swift */,
 				A00002000000000000000003 /* AudioDevice.swift */,
 				A00002000000000000000004 /* AudioDeviceStore.swift */,
 				A00002000000000000000005 /* CoreAudioController.swift */,
@@ -164,8 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00001000000000000000001 /* AppNavigation.swift in Sources */,
-				A00001000000000000000002 /* AppPreferences.swift in Sources */,
+A00001000000000000000002 /* AppPreferences.swift in Sources */,
 				A00001000000000000000003 /* AudioDevice.swift in Sources */,
 				A00001000000000000000004 /* AudioDeviceStore.swift in Sources */,
 				A00001000000000000000005 /* CoreAudioController.swift in Sources */,
@@ -187,7 +183,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = NO;
 				EXECUTABLE_NAME = InputControl;
@@ -215,7 +211,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = NO;
 				EXECUTABLE_NAME = InputControl;
@@ -226,7 +222,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.antigravity.inputcontrol;
 				PRODUCT_MODULE_NAME = InputControl;
 				PRODUCT_NAME = "Input Control";
