@@ -5,7 +5,7 @@ struct InputControlApp: App {
     @StateObject private var preferences: AppPreferences
     @StateObject private var deviceStore: AudioDeviceStore
     @StateObject private var launchAtLoginManager: LaunchAtLoginManager
-    @StateObject private var settingsWindowManager: SettingsWindowManager
+    @StateObject private var themeManager: ThemeManager
 
     init() {
         let preferences = AppPreferences()
@@ -14,13 +14,7 @@ struct InputControlApp: App {
         _preferences = StateObject(wrappedValue: preferences)
         _deviceStore = StateObject(wrappedValue: deviceStore)
         _launchAtLoginManager = StateObject(wrappedValue: launchAtLoginManager)
-        _settingsWindowManager = StateObject(
-            wrappedValue: SettingsWindowManager(
-                deviceStore: deviceStore,
-                preferences: preferences,
-                launchAtLoginManager: launchAtLoginManager
-            )
-        )
+        _themeManager = StateObject(wrappedValue: ThemeManager(preferences: preferences))
     }
 
     var body: some Scene {
@@ -28,14 +22,19 @@ struct InputControlApp: App {
             MenuBarContentView()
                 .environmentObject(deviceStore)
                 .environmentObject(preferences)
-                .environmentObject(settingsWindowManager)
                 .fontDesign(.monospaced)
         } label: {
             MenuBarLabelView()
                 .environmentObject(deviceStore)
                 .environmentObject(preferences)
-                .fontDesign(.monospaced)
         }
         .menuBarExtraStyle(.window)
+
+        Settings {
+            SettingsView()
+                .environmentObject(deviceStore)
+                .environmentObject(preferences)
+                .environmentObject(launchAtLoginManager)
+        }
     }
 }

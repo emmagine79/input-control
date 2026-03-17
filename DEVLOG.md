@@ -85,3 +85,26 @@ This file tracks all changes made to the project, when they were made, and why.
 - Users now see "the device does not exist or was disconnected" instead of opaque numbers
 
 **Files touched**: CoreAudioController.swift, AudioDeviceStore.swift, Info.plist, pending todos.md
+
+---
+
+## 2026-03-17 — Phase 4: SwiftUI Architecture (build 5)
+
+**S1: Replace custom settings window with Settings scene**
+- Deleted `SettingsWindowManager` (95 lines of NSWindow/NSHostingController/AnyView management)
+- Replaced with slim `ThemeManager` (~25 lines) that only applies NSApp.appearance
+- Added `Settings { SettingsView() }` scene to InputControlApp
+- MenuBarContentView no longer depends on SettingsWindowManager
+- Settings button now calls `AppNavigation.openSettings()` which uses native `sendAction`
+- Gains Cmd+, keyboard shortcut automatically
+
+**S2: Removed redundant .fontDesign(.monospaced)**
+- Removed from MenuBarExtra label (was redundant with inline font in MenuBarLabelView)
+- Removed from MenuBarContentView body (kept at MenuBarExtra content level in InputControlApp)
+- SettingsView keeps its own application (it's the root of the Settings scene)
+
+**S3: Fixed deprecated NSApp.activate(ignoringOtherApps:)**
+- Uses `NSApp.activate()` on macOS 14+
+- Falls back to `NSApp.activate(ignoringOtherApps: true)` on macOS 13
+
+**Files touched**: SettingsWindowManager.swift (rewritten as ThemeManager), InputControlApp.swift, MenuBarContentView.swift, AppNavigation.swift, Info.plist, pending todos.md

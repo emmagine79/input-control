@@ -29,12 +29,9 @@ _Files: AudioDeviceStore.swift, CoreAudioController.swift, AppPreferences.swift_
 ## Phase 4: SwiftUI Architecture (Settings Window)
 _Files: SettingsWindowManager.swift, InputControlApp.swift, MenuBarContentView.swift_
 
-- [ ] **S1** — Replace custom NSWindow settings with SwiftUI `Settings` scene
-  - Eliminates SettingsWindowManager entirely
-  - Gains Cmd+, shortcut for free
-  - Removes AnyView type erasure
-- [ ] **S2** — Remove redundant `.fontDesign(.monospaced)` applications
-- [ ] **S3** — Fix deprecated `NSApp.activate(ignoringOtherApps:)` (macOS 14+)
+- [x] **S1** — Replaced custom NSWindow with SwiftUI `Settings` scene *(done 2026-03-17, build 5)*
+- [x] **S2** — Removed redundant `.fontDesign(.monospaced)` *(done 2026-03-17, build 5)*
+- [x] **S3** — Fixed deprecated `NSApp.activate(ignoringOtherApps:)` with availability gate *(done 2026-03-17, build 5)*
 
 ---
 

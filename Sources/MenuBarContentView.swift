@@ -3,7 +3,6 @@ import SwiftUI
 struct MenuBarContentView: View {
     @EnvironmentObject private var deviceStore: AudioDeviceStore
     @EnvironmentObject private var preferences: AppPreferences
-    @EnvironmentObject private var settingsWindowManager: SettingsWindowManager
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -30,7 +29,6 @@ struct MenuBarContentView: View {
             RoundedRectangle(cornerRadius: 22, style: .continuous)
                 .fill(.ultraThinMaterial)
         )
-        .fontDesign(.monospaced)
     }
 
     private var header: some View {
@@ -89,8 +87,8 @@ struct MenuBarContentView: View {
 
                 Spacer()
 
-                Button("Settings…") {
-                    settingsWindowManager.show()
+                Button("Settings\u{2026}") {
+                    AppNavigation.openSettings()
                 }
             }
             .buttonStyle(.bordered)
